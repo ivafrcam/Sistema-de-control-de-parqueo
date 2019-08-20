@@ -1,0 +1,176 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mss is
+port(start, tecla, clave, clk, resetn, esperarnumero, esperar, sensor, sensoractivado, sirenaactivada, intentoscompletos, unminuto, esperac, esperarclave: in std_logic;
+		ent, enc, ens, enn, ldcero, ldcnt2, encnt2, encnt5, ldcnt5, puerta, llamada, alarma, encnt6, ldcnt6, encnt3, ldcnt3, error, encnt7, ldcnt7, ldcnt4, encnt4 : out std_logic;
+		estados: out std_logic_vector(4 downto 0));
+		
+end entity;
+
+architecture comp of mss is
+	type estado is (s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17);
+	signal y: estado;
+	
+begin
+	process(resetn, clk)
+	begin
+		if resetn = '0' then y <= s0;
+		elsif (clk'event and clk = '1') then 
+			case y is 
+				when s0 => if start = '1' then y <= s1;
+							  else y <= s0;
+							  end if;
+							  
+				when s1 => if start = '1' then y <= s1;
+							  else y <= s2;
+							  end if;
+				  
+				when s2 => if tecla = '1' then y <= s3;
+							  else y <= s2;
+							  end if;
+							  
+				when s3 => if tecla = '1' then y <= s3;       
+							  else y <= s4;
+							  end if;
+							  			  				  
+				when s4 => if tecla = '1' then y <= s5;
+							  elsif tecla = '0' then
+								if esperarnumero = '1' then y <= s2;
+								elsif esperarnumero = '0'then y <= s4;
+								end if;
+							  end if;
+										  
+				when s5 => if tecla = '1' then y <= s5;
+							  elsif tecla = '0' then 
+								if esperar = '1' then y <= s5;
+								elsif esperar= '0' then y <=s6;
+								end if;
+							  end if;
+							  
+				when s6 => if tecla = '1' then y <= s7;
+							  elsif tecla = '0' then
+								if esperarnumero = '1' then y <= s2;
+								elsif esperarnumero = '0'then y <= s6;
+								end if;
+							  end if;
+						
+				when s7 => if tecla = '1' then y <= s7;
+							  elsif tecla = '0' then 
+								if esperar = '1' then y <= s7;
+								elsif esperar = '0' then y <=s8;
+								end if;
+							  end if;
+							  
+				when s8 => if tecla = '1' then y <= s9;
+							  elsif tecla = '0' then
+								if esperarnumero = '1' then y <= s2;
+								elsif esperarnumero = '0'then y <= s8;
+								end if;
+							  end if;
+							  
+				when s9 => if tecla = '1' then y <= s9;
+							  else y <= s10;
+							  end if;
+							  
+				when s10 => if clave = '1' then y <= s11;
+								elsif clave = '0' then y <=  s12;
+								end if;
+								
+				when s11 => if sensor = '1' then y <= s13; 
+								else y <= s11;
+								end if;
+				
+				when s12 => if intentoscompletos = '1' then y <= s16;
+								elsif intentoscompletos = '0' then y <= s15;
+								end if;
+								
+				when s13 => if sensoractivado = '0' then
+									if sensor = '1' then y <= s13;
+									elsif sensor = '0' then y <= s2;
+									end if;
+								elsif sensoractivado = '1' then y <= s14;
+								end if;
+								
+				when s14 => if sirenaactivada = '0' then y <= s14;
+								elsif sirenaactivada = '1' then y <= s2;
+								end if;
+								
+				when s15 => if esperac = '1' then y <= s15;
+								elsif esperac = '0'then y <= s17;
+								end if;
+								
+				when s16 => if unminuto = '1' then y <= s2;
+								elsif unminuto = '0' then y <= s16;
+								end if;
+				
+				
+								
+				when s17 => if esperarclave = '0' then 
+									if tecla = '0' then y <= s17;
+									elsif tecla = '1' then y <= s3;
+									end if;
+								elsif esperarclave = '1' then y <= s2;
+								end if;
+
+			end case;
+		end if;
+	end process;
+	
+	process(y, tecla, start, clave, intentoscompletos, sensoractivado, esperarclave)
+	begin
+		ldcero <= '0'; ent <= '0'; enc <= '0'; ens <= '0'; enn <= '0'; estados <= "00000"; ldcnt2 <= '0'; encnt2 <= '0';
+		encnt5 <= '0'; ldcnt5 <= '0'; puerta <= '0'; llamada <= '0'; alarma <= '0'; encnt6 <= '0'; ldcnt6 <= '0';
+		encnt3 <= '0'; ldcnt3<= '0'; error <= '0'; encnt7 <= '0'; ldcnt7 <= '0';ldcnt4 <= '0'; encnt4 <= '0'; 
+		
+		case y is 
+			when s0 => if start =  '0' then ldcero <= '1'; ldcnt2 <= '1'; ldcnt5 <= '1'; ldcnt6 <= '1'; ldcnt4 <= '1'; ldcnt3 <= '1'; ldcnt7 <= '1'; end if; estados <= "00000";
+			
+			when s1 => estados <= "00001";
+			
+			when s2 => if tecla = '1' then ent <= '1'; end if; 
+						  ldcnt2 <= '1'; ldcnt5 <= '1'; ldcnt6 <= '1'; ldcnt4 <= '1'; ldcnt3 <= '1'; ldcnt7 <= '1';
+						  estados <= "00010";
+			
+			when s3 => estados <= "00011";
+			
+			when s4 => if tecla = '1' then enc <= '1'; end if; encnt2 <= '1'; estados <= "00100"; 
+			
+			when s5 => ldcnt2 <= '1'; estados <= "00101";
+			
+			when s6 => if tecla = '1' then ens <= '1'; end if; encnt2 <= '1'; estados <= "00110";
+			
+			when s7 => ldcnt2 <= '1'; estados <= "00111";
+			
+			when s8 => if tecla = '1' then enn <= '1'; end if; encnt2 <= '1'; estados <= "01000";
+			
+			when s9 => ldcnt2 <= '1'; estados <= "01001"; 
+			
+			when s10 => if clave = '1' then ldcnt5 <= '1'; 
+							elsif clave = '0' then encnt3 <= '1';
+							end if; 
+							estados <= "01010";
+			
+			when s11 => puerta <= '1'; estados <= "01011";
+			
+			when s12 => if intentoscompletos = '1' then ldcnt7 <= '1'; end if; error <= '1'; estados <= "01100";
+			
+			when s13 => if sensoractivado = '1' then llamada <= '1'; end if; puerta <= '1'; encnt5 <= '1'; estados  <= "01101";
+			
+			when s14 => alarma <= '1'; encnt6 <= '1'; estados <= "01110";
+			
+			when s15 => ldcnt4 <= '1'; estados <= "01111";
+			
+			when s16 => alarma <='1'; encnt7 <='1'; estados <= "10000";
+			
+			when s17 => if esperarclave = '0' then 
+								if tecla = '1' then ent <= '1';
+								end if;
+							elsif esperarclave = '1' then ldcnt3 <= '1';
+							end if;
+							encnt4 <= '1'; estados <= "10001";
+			
+		end case;
+	end process;
+end comp;

@@ -1,0 +1,274 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 224 416)
+	(text "mss" (rect 5 0 22 12)(font "Arial" ))
+	(text "inst" (rect 8 384 20 396)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "marcha" (rect 0 0 30 12)(font "Arial" ))
+		(text "marcha" (rect 21 27 51 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "start" (rect 0 0 17 12)(font "Arial" ))
+		(text "start" (rect 21 43 38 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "rstn" (rect 0 0 15 12)(font "Arial" ))
+		(text "rstn" (rect 21 59 36 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 75 31 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "parqueo" (rect 0 0 31 12)(font "Arial" ))
+		(text "parqueo" (rect 21 91 52 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "aceptar" (rect 0 0 29 12)(font "Arial" ))
+		(text "aceptar" (rect 21 107 50 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "salida" (rect 0 0 21 12)(font "Arial" ))
+		(text "salida" (rect 21 123 42 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "tecla" (rect 0 0 17 12)(font "Arial" ))
+		(text "tecla" (rect 21 139 38 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "hayespacios" (rect 0 0 49 12)(font "Arial" ))
+		(text "hayespacios" (rect 21 155 70 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "okpos" (rect 0 0 23 12)(font "Arial" ))
+		(text "okpos" (rect 21 171 44 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "ocupadoout" (rect 0 0 44 12)(font "Arial" ))
+		(text "ocupadoout" (rect 21 187 65 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 1))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "listo" (rect 0 0 14 12)(font "Arial" ))
+		(text "listo" (rect 21 203 35 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 1))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "existe" (rect 0 0 22 12)(font "Arial" ))
+		(text "existe" (rect 21 219 43 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 1))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "ledamarillo" (rect 0 0 40 12)(font "Arial" ))
+		(text "ledamarillo" (rect 147 27 187 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 1))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "ledverde" (rect 0 0 34 12)(font "Arial" ))
+		(text "ledverde" (rect 153 43 187 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48)(line_width 1))
+	)
+	(port
+		(pt 208 64)
+		(output)
+		(text "ldn" (rect 0 0 10 12)(font "Arial" ))
+		(text "ldn" (rect 177 59 187 71)(font "Arial" ))
+		(line (pt 208 64)(pt 192 64)(line_width 1))
+	)
+	(port
+		(pt 208 80)
+		(output)
+		(text "en1" (rect 0 0 12 12)(font "Arial" ))
+		(text "en1" (rect 175 75 187 87)(font "Arial" ))
+		(line (pt 208 80)(pt 192 80)(line_width 1))
+	)
+	(port
+		(pt 208 96)
+		(output)
+		(text "en2" (rect 0 0 14 12)(font "Arial" ))
+		(text "en2" (rect 173 91 187 103)(font "Arial" ))
+		(line (pt 208 96)(pt 192 96)(line_width 1))
+	)
+	(port
+		(pt 208 112)
+		(output)
+		(text "en3" (rect 0 0 14 12)(font "Arial" ))
+		(text "en3" (rect 173 107 187 119)(font "Arial" ))
+		(line (pt 208 112)(pt 192 112)(line_width 1))
+	)
+	(port
+		(pt 208 128)
+		(output)
+		(text "enmenos" (rect 0 0 36 12)(font "Arial" ))
+		(text "enmenos" (rect 151 123 187 135)(font "Arial" ))
+		(line (pt 208 128)(pt 192 128)(line_width 1))
+	)
+	(port
+		(pt 208 144)
+		(output)
+		(text "ldmenos" (rect 0 0 33 12)(font "Arial" ))
+		(text "ldmenos" (rect 154 139 187 151)(font "Arial" ))
+		(line (pt 208 144)(pt 192 144)(line_width 1))
+	)
+	(port
+		(pt 208 160)
+		(output)
+		(text "ldpuesto" (rect 0 0 31 12)(font "Arial" ))
+		(text "ldpuesto" (rect 156 155 187 167)(font "Arial" ))
+		(line (pt 208 160)(pt 192 160)(line_width 1))
+	)
+	(port
+		(pt 208 176)
+		(output)
+		(text "enpuesto" (rect 0 0 35 12)(font "Arial" ))
+		(text "enpuesto" (rect 152 171 187 183)(font "Arial" ))
+		(line (pt 208 176)(pt 192 176)(line_width 1))
+	)
+	(port
+		(pt 208 192)
+		(output)
+		(text "modo" (rect 0 0 22 12)(font "Arial" ))
+		(text "modo" (rect 165 187 187 199)(font "Arial" ))
+		(line (pt 208 192)(pt 192 192)(line_width 1))
+	)
+	(port
+		(pt 208 208)
+		(output)
+		(text "ocupadoin" (rect 0 0 38 12)(font "Arial" ))
+		(text "ocupadoin" (rect 149 203 187 215)(font "Arial" ))
+		(line (pt 208 208)(pt 192 208)(line_width 1))
+	)
+	(port
+		(pt 208 224)
+		(output)
+		(text "ledrojo" (rect 0 0 24 12)(font "Arial" ))
+		(text "ledrojo" (rect 163 219 187 231)(font "Arial" ))
+		(line (pt 208 224)(pt 192 224)(line_width 1))
+	)
+	(port
+		(pt 208 240)
+		(output)
+		(text "ledtransparente" (rect 0 0 60 12)(font "Arial" ))
+		(text "ledtransparente" (rect 127 235 187 247)(font "Arial" ))
+		(line (pt 208 240)(pt 192 240)(line_width 1))
+	)
+	(port
+		(pt 208 256)
+		(output)
+		(text "enmas" (rect 0 0 27 12)(font "Arial" ))
+		(text "enmas" (rect 160 251 187 263)(font "Arial" ))
+		(line (pt 208 256)(pt 192 256)(line_width 1))
+	)
+	(port
+		(pt 208 272)
+		(output)
+		(text "sel" (rect 0 0 10 12)(font "Arial" ))
+		(text "sel" (rect 177 267 187 279)(font "Arial" ))
+		(line (pt 208 272)(pt 192 272)(line_width 1))
+	)
+	(port
+		(pt 208 288)
+		(output)
+		(text "enram" (rect 0 0 25 12)(font "Arial" ))
+		(text "enram" (rect 162 283 187 295)(font "Arial" ))
+		(line (pt 208 288)(pt 192 288)(line_width 1))
+	)
+	(port
+		(pt 208 304)
+		(output)
+		(text "ldram" (rect 0 0 22 12)(font "Arial" ))
+		(text "ldram" (rect 165 299 187 311)(font "Arial" ))
+		(line (pt 208 304)(pt 192 304)(line_width 1))
+	)
+	(port
+		(pt 208 320)
+		(output)
+		(text "modo1" (rect 0 0 25 12)(font "Arial" ))
+		(text "modo1" (rect 162 315 187 327)(font "Arial" ))
+		(line (pt 208 320)(pt 192 320)(line_width 1))
+	)
+	(port
+		(pt 208 336)
+		(output)
+		(text "ldclave" (rect 0 0 27 12)(font "Arial" ))
+		(text "ldclave" (rect 160 331 187 343)(font "Arial" ))
+		(line (pt 208 336)(pt 192 336)(line_width 1))
+	)
+	(port
+		(pt 208 352)
+		(output)
+		(text "enclave" (rect 0 0 30 12)(font "Arial" ))
+		(text "enclave" (rect 157 347 187 359)(font "Arial" ))
+		(line (pt 208 352)(pt 192 352)(line_width 1))
+	)
+	(port
+		(pt 208 368)
+		(output)
+		(text "estados[4..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "estados[4..0]" (rect 136 363 187 375)(font "Arial" ))
+		(line (pt 208 368)(pt 192 368)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 384)(line_width 1))
+	)
+)
